@@ -124,8 +124,9 @@ public class Simulation implements Actions{
         switch (chooseAct){
             case 1:
                 g.addCat(c);
-                chooseAction(c);
                 g.printCats(c);
+                chooseAction(c);
+
                 break;
             case 2:
                 int chooseCat = choice("Выберите кота");

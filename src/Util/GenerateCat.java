@@ -97,7 +97,6 @@ public class GenerateCat {
                    "Введите данные повторно");
            addCat(c);
        }
-       printCats(c);
    }
    private static String addCatName() {
         Scanner input = new Scanner(System.in);

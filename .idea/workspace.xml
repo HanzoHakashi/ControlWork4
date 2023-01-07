@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b23a6112-daf1-41dc-addf-c6d6ba90f0c5" name="Changes" comment="created Play parameter in Cat class, and use it in methods">
-      <change beforePath="$PROJECT_DIR$/src/Util/GenerateCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/GenerateCat.java" afterDir="false" />
+    <list default="true" id="b23a6112-daf1-41dc-addf-c6d6ba90f0c5" name="Changes" comment="added condition in addCat method">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673089110979</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added condition in addCat method">
+      <created>1673089825497</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1673089825497</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,7 +127,8 @@
     <MESSAGE value="Override all methods in Simulation because it implements Action. &#10;Then I finished writing chooseAction method." />
     <MESSAGE value="created nextDay method" />
     <MESSAGE value="created Play parameter in Cat class, and use it in methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="created Play parameter in Cat class, and use it in methods" />
+    <MESSAGE value="added condition in addCat method" />
+    <option name="LAST_COMMIT_MESSAGE" value="added condition in addCat method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
