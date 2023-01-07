@@ -18,28 +18,83 @@ public class Simulation implements Actions{
 
     @Override
     public Cat feedCat(Cat c) {
-        int feed = r.nextInt(10)+10;
-        System.out.printf("Вы покормили %s вискасом + %s к насыщению%n",c.getName(),feed);
+        int feed=0;
+        int mood=0;
+        if (c.getAge()>=1 && c.getAge()<=5){
+            feed = 7;
+            mood = 7;
+        }else if(c.getAge()>=6 && c.getAge()<=10){
+            feed = 5;
+            mood = 5;
+        } else if (c.getAge()>=11) {
+            feed = 4;
+            mood = 4;
+        }
+        System.out.printf("Вы покормили %s вискасом +%s к насыщению и +%s к настроению%n",c.getName(),feed,mood);
         int current = c.getSatiety();
+        int currentMood = c.getMood();
+        c.setMood(currentMood+mood);
         c.setSatiety(current+feed);
+        c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
         return c;
     }
 
     @Override
     public Cat playWithCat(Cat c) {
-        int fun = r.nextInt(15)+15;
-        System.out.printf("Вы поиграли с %s. + %s к настроению.%n",c.getName(),fun);
+        int fun = 0;
+        int hp = 0;
+        int sat = 0;
+        if (c.getAge()>=1 && c.getAge()<=5){
+            sat = 3;
+            hp = 7;
+            fun = 7;
+        }else if(c.getAge()>=6 && c.getAge()<=10){
+            sat = 5;
+            hp = 5;
+            fun = 5;
+        } else if (c.getAge()>=11) {
+            sat = 6;
+            hp = 4;
+            fun = 4;
+        }
+
+        System.out.printf("Вы поиграли с %s. +%s к настроению и +%s к здоровью. -%s к сытости%n",c.getName(),fun,hp,sat);
+        int currentSat = c.getSatiety();
+        int currentHp= c.getHp();
         int current = c.getMood();
         c.setMood(current+fun);
+        c.setSatiety(currentSat-sat);
+        c.setHp(currentHp+hp);
+        c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
         return c;
     }
 
     @Override
     public Cat healCat(Cat c) {
-        int hp = r.nextInt(15)+25;
-        System.out.printf("Вы отвели %s к ветеринару. + %s к здоровью%n",c.getName(),hp);
+        int hp = 0;
+        int mood = 0;
+        int satiety = 0;
+        if (c.getAge()>=1 && c.getAge()<=5){
+            satiety = 3;
+            hp = 7;
+            mood = 3;
+        }else if(c.getAge()>=6 && c.getAge()<=10){
+            satiety = 5;
+            hp = 5;
+            mood = 5;
+        } else if (c.getAge()>=11) {
+            satiety = 6;
+            hp = 4;
+            mood = 6;
+        }
+        System.out.printf("Вы отвели %s к ветеринару. +%s к здоровью%n -%s к настроению и -%s к сытости",c.getName(),hp,mood,satiety);
         int current = c.getHp();
+        int currentMood = c.getMood();
+        int currentSat= c.getSatiety();
+        c.setMood(currentMood-mood);
+        c.setSatiety(currentSat-satiety);
         c.setHp(current+hp);
+        c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
         return c;
     }
 
@@ -49,7 +104,8 @@ public class Simulation implements Actions{
                 "1.Добавить кота\n"+
                 "2.Покормить кота\n"+
                 "3.Поиграть с котом\n"+
-                "4.Отвести кота к ветеринару");
+                "4.Отвести кота к ветеринару\n"+
+                "5.Переключиться на следующий день");
         switch (chooseAct){
             case 1:
                 g.addCat(c);
@@ -73,12 +129,32 @@ public class Simulation implements Actions{
                 g.printCats(c);
                 chooseAction(c);
                 break;
+            case 5:
+                nextDay(c);
+                g.printCats(c);
+                chooseAction(c);
+                break;
             default:
                 System.out.println("Данное действие недоступно. Выберите дейтвие повторно");
                 chooseAction(c);
                 break;
         }
 
+    }
+    public List<Cat> nextDay(List<Cat> c){
+        for (var str:c) {
+            int sat = r.nextInt(4)+1;
+            int mood = r.nextInt(6)-3;
+            int hp = r.nextInt(6)-3;
+            int currentHp =str.getHp();
+            int currentMood = str.getMood();
+            int currentSat = str.getSatiety();
+            if (str.getHp()>0){str.setHp(currentHp+hp);}
+            if(str.getMood()>0){str.setMood(currentMood+mood);}
+            if (str.getSatiety()>0){str.setSatiety(currentSat+sat);}
+            str.setMid((str.getHp()+str.getMood()+str.getSatiety())/3);
+        }
+       return c;
     }
 
     public Cat getPus(List<Cat> c, int choice){

@@ -80,9 +80,9 @@ public class GenerateCat {
        cat.setName(name);
        int age = addCatAge();
        cat.setAge(age);
-       int random1 = r.nextInt(100);
-       int random2 = r.nextInt(100);
-       int random3 = r.nextInt(100);
+       int random1 = r.nextInt(60)+20;
+       int random2 = r.nextInt(60)+20;
+       int random3 = r.nextInt(60)+20;
        cat.setHp(random1);
        cat.setMid(((random1+random2+random3)/3));
        cat.setMood(random2);
