@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b23a6112-daf1-41dc-addf-c6d6ba90f0c5" name="Changes" comment="created project. add Model Package and created Cat class in it">
-      <change afterPath="$PROJECT_DIR$/src/Util/GenerateCat.java" afterDir="false" />
+    <list default="true" id="b23a6112-daf1-41dc-addf-c6d6ba90f0c5" name="Changes" comment="created parameters in Cat and created getters and setters in it.&#10;then created GenerateCat class and created List of Cats. Filled it and made printCat method, test it in Main for test(It works)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util/GenerateCat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/GenerateCat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673069118580</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="created parameters in Cat and created getters and setters in it.&#10;then created GenerateCat class and created List of Cats. Filled it and made printCat method, test it in Main for test(It works)">
+      <created>1673074741330</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673074741330</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -83,6 +90,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created project. add Model Package and created Cat class in it" />
-    <option name="LAST_COMMIT_MESSAGE" value="created project. add Model Package and created Cat class in it" />
+    <MESSAGE value="created parameters in Cat and created getters and setters in it.&#10;then created GenerateCat class and created List of Cats. Filled it and made printCat method, test it in Main for test(It works)" />
+    <option name="LAST_COMMIT_MESSAGE" value="created parameters in Cat and created getters and setters in it.&#10;then created GenerateCat class and created List of Cats. Filled it and made printCat method, test it in Main for test(It works)" />
   </component>
 </project>

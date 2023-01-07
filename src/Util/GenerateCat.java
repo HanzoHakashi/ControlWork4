@@ -2,9 +2,7 @@ package Util;
 
 import Model.Cat;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GenerateCat {
     private List<String> names = new ArrayList<>();
@@ -56,6 +54,7 @@ public class GenerateCat {
            int random3 = r.nextInt(100);
            c.setName(names.get(i));
            c.setHp(random1);
+           c.setMid(((random1+random2+random3)/3));
            c.setMood(random2);
            c.setSatiety(random3);
            c.setAge(age);
@@ -66,11 +65,54 @@ public class GenerateCat {
 
    public void printCats(List<Cat> cats){
        System.out.printf("\t|%-4s\t|%-7s\t|%-4s\t|%-4s\t|%-4s\t|%-2s\t|%-7s|%n","#","Name","Age","Hp","Mood","Satiety","Mid");
+       cats.sort(Comparator.comparing(Cat::getMid));
+       Collections.reverse(cats);
        int i = 1;
        for (var str:cats) {
-           int mid = str.getHp()+str.getMood()+str.getSatiety()/3;
-           System.out.printf("\t|%-4s\t|%-7s\t|%-4s\t|%-4s\t|%-4s\t|%-7s\t|%-7s|%n",i,str.getName(),str.getAge(),str.getHp(),str.getMood(),str.getSatiety(),mid);
+           System.out.printf("\t|%-4s\t|%-7s\t|%-4s\t|%-4s\t|%-4s\t|%-7s\t|%-7s|%n",i,str.getName(),str.getAge(),str.getHp(),str.getMood(),str.getSatiety(),str.getMid());
            i++;
        }
    }
+
+   public void addCat(List<Cat> c){
+       String name = addCatName();
+       Cat cat = new Cat();
+       cat.setName(name);
+       int age = addCatAge();
+       cat.setAge(age);
+       int random1 = r.nextInt(100);
+       int random2 = r.nextInt(100);
+       int random3 = r.nextInt(100);
+       cat.setHp(random1);
+       cat.setMid(((random1+random2+random3)/3));
+       cat.setMood(random2);
+       cat.setSatiety(random3);
+       c.add(cat);
+       printCats(c);
+   }
+   private static String addCatName() {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println("Введите имя нового кота");
+            try {
+                return input.nextLine();
+            }
+            catch (java.util.InputMismatchException e) {
+                input.nextLine();
+            }
+        }
+    }
+    private static int addCatAge() {
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println("Укажите возраст");
+            try {
+                return input.nextInt();
+            }
+            catch (java.util.InputMismatchException e) {
+                System.out.println("Неверное значение, укажите верный параметр");
+                input.nextLine();
+            }
+        }
+    }
 }

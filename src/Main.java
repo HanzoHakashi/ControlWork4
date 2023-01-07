@@ -8,5 +8,6 @@ public class Main {
         GenerateCat g = new GenerateCat();
         List<Cat> cats = g.createCat();
         g.printCats(cats);
+        g.addCat(cats);
     }
 }

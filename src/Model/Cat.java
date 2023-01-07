@@ -14,12 +14,22 @@ public class Cat {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cat cat = (Cat) o;
-        return age == cat.age && satiety == cat.satiety && mood == cat.mood && hp == cat.hp && Objects.equals(name, cat.name);
+        return age == cat.age && satiety == cat.satiety && mood == cat.mood && hp == cat.hp && mid == cat.mid && Objects.equals(name, cat.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, satiety, mood, hp);
+        return Objects.hash(name, age, satiety, mood, hp, mid);
+    }
+
+    private int mid;
+
+    public int getMid() {
+        return mid;
+    }
+
+    public void setMid(int mid) {
+        this.mid = mid;
     }
 
     @Override
