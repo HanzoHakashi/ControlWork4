@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b23a6112-daf1-41dc-addf-c6d6ba90f0c5" name="Changes" comment="added condition in addCat method">
+    <list default="true" id="b23a6112-daf1-41dc-addf-c6d6ba90f0c5" name="Changes" comment="changed addCat method and changed chooseAction method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util/Simulation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673089825497</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="changed addCat method and changed chooseAction method">
+      <created>1673090823539</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1673090823539</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,7 +136,8 @@
     <MESSAGE value="created nextDay method" />
     <MESSAGE value="created Play parameter in Cat class, and use it in methods" />
     <MESSAGE value="added condition in addCat method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added condition in addCat method" />
+    <MESSAGE value="changed addCat method and changed chooseAction method" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed addCat method and changed chooseAction method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -18,7 +18,8 @@ public class Simulation implements Actions{
 
     @Override
     public Cat feedCat(Cat c) {
-        if (c.getPlay()!=1){int feed=0;
+        int chance = r.nextInt(100);
+        if (c.getPlay()!=1 && chance>30){int feed=0;
             int mood=0;
             if (c.getAge()>=1 && c.getAge()<=5){
                 feed = 7;
@@ -37,7 +38,17 @@ public class Simulation implements Actions{
             c.setSatiety(current+feed);
             c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
             c.setPlay(1);}
-        else {
+        else if (chance<=30 && c.getPlay()!=1) {
+            int mood = 4;
+            int hp = 5;
+            int current = c.getHp();
+            int currentMood = c.getMood();
+            System.out.printf("%s съел просроченный вискас, -%s к здоровью и -%s к настроению%n",c.getName(),hp,mood);
+            c.setHp(current-hp);
+            c.setMood(currentMood-mood);
+            c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
+            c.setPlay(1);}
+         else {
             System.out.println("Кот устал, действие недоступно");
         }
 
@@ -46,7 +57,8 @@ public class Simulation implements Actions{
 
     @Override
     public Cat playWithCat(Cat c) {
-        if (c.getPlay()!=1){int fun = 0;
+        int chance = r.nextInt(100);
+        if (c.getPlay()!=1 && chance>30){int fun = 0;
             int hp = 0;
             int sat = 0;
             if (c.getAge()>=1 && c.getAge()<=5){
@@ -72,7 +84,22 @@ public class Simulation implements Actions{
             c.setHp(currentHp+hp);
             c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
             c.setPlay(1);}
-        else {
+        else if (chance<=30 && c.getPlay()!=1) {
+            int mood = 4;
+            int hp = 100;
+            int current = c.getHp();
+            int currentMood = c.getMood();
+            System.out.printf("%s приземлился не на лапы, -%s к здоровью и -%s к настроению%n",c.getName(),hp,mood);
+                c.setHp(current-hp);
+                c.setMood(currentMood-mood);
+                c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
+                c.setPlay(1);
+            if (c.getHp()<=0){
+                System.out.println("Кот умер");
+                c.setHp(current-hp);
+            }
+            }
+         else {
             System.out.println("Кот устал, действие недоступно");
         }
 
@@ -137,6 +164,7 @@ public class Simulation implements Actions{
             case 3:
                 int chooseCat2 = choice("Выберите кота");
                 playWithCat(getPus(c,chooseCat2));
+                c.removeIf(e->e.getHp()<0);
                 g.printCats(c);
                 chooseAction(c);
                 break;
