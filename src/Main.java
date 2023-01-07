@@ -1,5 +1,12 @@
+import Model.Cat;
+import Util.GenerateCat;
+
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        GenerateCat g = new GenerateCat();
+        List<Cat> cats = g.createCat();
+        g.printCats(cats);
     }
 }
