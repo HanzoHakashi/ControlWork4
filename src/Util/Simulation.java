@@ -18,83 +18,98 @@ public class Simulation implements Actions{
 
     @Override
     public Cat feedCat(Cat c) {
-        int feed=0;
-        int mood=0;
-        if (c.getAge()>=1 && c.getAge()<=5){
-            feed = 7;
-            mood = 7;
-        }else if(c.getAge()>=6 && c.getAge()<=10){
-            feed = 5;
-            mood = 5;
-        } else if (c.getAge()>=11) {
-            feed = 4;
-            mood = 4;
+        if (c.getPlay()!=1){int feed=0;
+            int mood=0;
+            if (c.getAge()>=1 && c.getAge()<=5){
+                feed = 7;
+                mood = 7;
+            }else if(c.getAge()>=6 && c.getAge()<=10){
+                feed = 5;
+                mood = 5;
+            } else if (c.getAge()>=11) {
+                feed = 4;
+                mood = 4;
+            }
+            System.out.printf("Вы покормили %s вискасом +%s к насыщению и +%s к настроению%n",c.getName(),feed,mood);
+            int current = c.getSatiety();
+            int currentMood = c.getMood();
+            c.setMood(currentMood+mood);
+            c.setSatiety(current+feed);
+            c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
+            c.setPlay(1);}
+        else {
+            System.out.println("Кот устал, действие недоступно");
         }
-        System.out.printf("Вы покормили %s вискасом +%s к насыщению и +%s к настроению%n",c.getName(),feed,mood);
-        int current = c.getSatiety();
-        int currentMood = c.getMood();
-        c.setMood(currentMood+mood);
-        c.setSatiety(current+feed);
-        c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
+
         return c;
     }
 
     @Override
     public Cat playWithCat(Cat c) {
-        int fun = 0;
-        int hp = 0;
-        int sat = 0;
-        if (c.getAge()>=1 && c.getAge()<=5){
-            sat = 3;
-            hp = 7;
-            fun = 7;
-        }else if(c.getAge()>=6 && c.getAge()<=10){
-            sat = 5;
-            hp = 5;
-            fun = 5;
-        } else if (c.getAge()>=11) {
-            sat = 6;
-            hp = 4;
-            fun = 4;
+        if (c.getPlay()!=1){int fun = 0;
+            int hp = 0;
+            int sat = 0;
+            if (c.getAge()>=1 && c.getAge()<=5){
+                sat = 3;
+                hp = 7;
+                fun = 7;
+            }else if(c.getAge()>=6 && c.getAge()<=10){
+                sat = 5;
+                hp = 5;
+                fun = 5;
+            } else if (c.getAge()>=11) {
+                sat = 6;
+                hp = 4;
+                fun = 4;
+            }
+
+            System.out.printf("Вы поиграли с %s. +%s к настроению и +%s к здоровью. -%s к сытости%n",c.getName(),fun,hp,sat);
+            int currentSat = c.getSatiety();
+            int currentHp= c.getHp();
+            int current = c.getMood();
+            c.setMood(current+fun);
+            c.setSatiety(currentSat-sat);
+            c.setHp(currentHp+hp);
+            c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
+            c.setPlay(1);}
+        else {
+            System.out.println("Кот устал, действие недоступно");
         }
 
-        System.out.printf("Вы поиграли с %s. +%s к настроению и +%s к здоровью. -%s к сытости%n",c.getName(),fun,hp,sat);
-        int currentSat = c.getSatiety();
-        int currentHp= c.getHp();
-        int current = c.getMood();
-        c.setMood(current+fun);
-        c.setSatiety(currentSat-sat);
-        c.setHp(currentHp+hp);
-        c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
         return c;
     }
 
     @Override
     public Cat healCat(Cat c) {
-        int hp = 0;
-        int mood = 0;
-        int satiety = 0;
-        if (c.getAge()>=1 && c.getAge()<=5){
-            satiety = 3;
-            hp = 7;
-            mood = 3;
-        }else if(c.getAge()>=6 && c.getAge()<=10){
-            satiety = 5;
-            hp = 5;
-            mood = 5;
-        } else if (c.getAge()>=11) {
-            satiety = 6;
-            hp = 4;
-            mood = 6;
+        if (c.getPlay()!=1){ int hp = 0;
+            int mood = 0;
+            int satiety = 0;
+            if (c.getAge()>=1 && c.getAge()<=5){
+                satiety = 3;
+                hp = 7;
+                mood = 3;
+            }else if(c.getAge()>=6 && c.getAge()<=10){
+                satiety = 5;
+                hp = 5;
+                mood = 5;
+            } else if (c.getAge()>=11) {
+                satiety = 6;
+                hp = 4;
+                mood = 6;
+            }
+            System.out.printf("Вы отвели %s к ветеринару. +%s к здоровью%n -%s к настроению и -%s к сытости%n",c.getName(),hp,mood,satiety);
+            int current = c.getHp();
+            int currentMood = c.getMood();
+            int currentSat= c.getSatiety();
+            c.setMood(currentMood-mood);
+            c.setSatiety(currentSat-satiety);
+            c.setHp(current+hp);
+            c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
+            c.setPlay(1);}
+        else {
+            System.out.println("Кот устал, действие недоступно");
         }
-        System.out.printf("Вы отвели %s к ветеринару. +%s к здоровью%n -%s к настроению и -%s к сытости",c.getName(),hp,mood,satiety);
-        int current = c.getHp();
-        int currentMood = c.getMood();
-        int currentSat= c.getSatiety();
-        c.setMood(currentMood-mood);
-        c.setSatiety(currentSat-satiety);
-        c.setHp(current+hp);
-        c.setMid((c.getSatiety()+c.getMood()+c.getHp())/3);
+
         return c;
     }
 
@@ -150,6 +165,7 @@ public class Simulation implements Actions{
             int currentMood = str.getMood();
             int currentSat = str.getSatiety();
             if (str.getHp()>0){str.setHp(currentHp+hp);}
+            str.setPlay(0);
             if(str.getMood()>0){str.setMood(currentMood+mood);}
             if (str.getSatiety()>0){str.setSatiety(currentSat+sat);}
             str.setMid((str.getHp()+str.getMood()+str.getSatiety())/3);

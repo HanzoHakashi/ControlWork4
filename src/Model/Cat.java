@@ -8,18 +8,27 @@ public class Cat {
     private int satiety;
     private int mood;
     private int hp;
+    private int play;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Cat cat = (Cat) o;
-        return age == cat.age && satiety == cat.satiety && mood == cat.mood && hp == cat.hp && mid == cat.mid && Objects.equals(name, cat.name);
+        return age == cat.age && satiety == cat.satiety && mood == cat.mood && hp == cat.hp && play == cat.play && mid == cat.mid && Objects.equals(name, cat.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age, satiety, mood, hp, mid);
+        return Objects.hash(name, age, satiety, mood, hp, play, mid);
+    }
+
+    public int getPlay() {
+        return play;
+    }
+
+    public void setPlay(int play) {
+        this.play = play;
     }
 
     private int mid;

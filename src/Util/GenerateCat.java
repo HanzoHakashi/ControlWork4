@@ -69,7 +69,11 @@ public class GenerateCat {
        Collections.reverse(cats);
        int i = 1;
        for (var str:cats) {
-           System.out.printf("\t|%-4s\t|%-7s\t|%-4s\t|%-4s\t|%-4s\t|%-7s\t|%-7s|%n",i,str.getName(),str.getAge(),str.getHp(),str.getMood(),str.getSatiety(),str.getMid());
+           String play="";
+           if (str.getPlay()==1){
+               play = "*";
+           }
+           System.out.printf("\t|%-4s\t|%s %-7s\t|%-4s\t|%-4s\t|%-4s\t|%-7s\t|%-7s|%n",i,play,str.getName(),str.getAge(),str.getHp(),str.getMood(),str.getSatiety(),str.getMid());
            i++;
        }
    }
