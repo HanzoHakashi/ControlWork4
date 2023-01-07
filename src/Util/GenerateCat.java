@@ -91,7 +91,12 @@ public class GenerateCat {
        cat.setMid(((random1+random2+random3)/3));
        cat.setMood(random2);
        cat.setSatiety(random3);
-       c.add(cat);
+       if (cat.getAge()<=18 && cat.getAge()>0){ c.add(cat);
+       }else {
+           System.out.println("Кошки столько не живут\n"+
+                   "Введите данные повторно");
+           addCat(c);
+       }
        printCats(c);
    }
    private static String addCatName() {
